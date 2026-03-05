@@ -1,0 +1,220 @@
+/**
+ * Dashboard Buttons Styles for Login Page
+ * Simple vertical layout with dashboard names only
+ */
+
+/* Dashboard Grid Container */
+.dashboard-grid {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dashboard-grid-header {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.dashboard-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-subtitle {
+  font-size: 0.875rem;
+  color: #64748b;
+  margin: 0;
+  opacity: 0.8;
+}
+
+/* Dashboard Buttons - Simple Vertical Layout */
+.dashboard-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0;
+  max-height: none;
+  overflow: visible;
+}
+
+/* Individual Dashboard Button - Simplified */
+.dashboard-btn {
+  display: block;
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.dashboard-btn:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.dashboard-btn:active {
+  transform: translateX(2px);
+}
+
+/* Hide icons and descriptions */
+.dashboard-btn i,
+.dashboard-btn small {
+  display: none;
+}
+
+/* Color Variants */
+.dashboard-btn-purple {
+  background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+}
+
+.dashboard-btn-blue {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+}
+
+.dashboard-btn-cyan {
+  background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+}
+
+.dashboard-btn-teal {
+  background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);
+}
+
+.dashboard-btn-green {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.dashboard-btn-lime {
+  background: linear-gradient(135deg, #84cc16 0%, #65a30d 100%);
+}
+
+.dashboard-btn-yellow {
+  background: linear-gradient(135deg, #eab308 0%, #ca8a04 100%);
+}
+
+.dashboard-btn-orange {
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+}
+
+.dashboard-btn-red {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+}
+
+.dashboard-btn-pink {
+  background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+}
+
+.dashboard-btn-indigo {
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+}
+
+.dashboard-btn-gray {
+  background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dashboard-grid {
+    margin-top: 1.5rem;
+    padding: 0.75rem;
+  }
+  
+  .dashboard-buttons {
+    gap: 0.375rem;
+  }
+  
+  .dashboard-btn {
+    padding: 0.75rem 0.875rem;
+    font-size: 0.8rem;
+  }
+  
+  .dashboard-title {
+    font-size: 1.125rem;
+  }
+  
+  .dashboard-subtitle {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-grid {
+    margin-top: 1rem;
+    padding: 0.5rem;
+  }
+  
+  .dashboard-buttons {
+    gap: 0.25rem;
+  }
+  
+  .dashboard-btn {
+    padding: 0.625rem 0.75rem;
+    font-size: 0.75rem;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .dashboard-grid {
+    background: rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .dashboard-title {
+    color: #f1f5f9;
+  }
+  
+  .dashboard-subtitle {
+    color: #94a3b8;
+  }
+}
+
+/* Loading State */
+.dashboard-btn.loading {
+  opacity: 0.7;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.dashboard-btn.loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  width: 16px;
+  height: 16px;
+  margin: -8px 0 0 0;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Success State */
+.dashboard-btn.success {
+  animation: success-pulse 0.6s ease;
+}
+
+@keyframes success-pulse {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(2px); }
+  100% { transform: translateX(0); }
+}
