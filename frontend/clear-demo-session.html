@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clear Demo Session</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .success {
+            background: #28a745;
+            color: white;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+            display: none;
+        }
+        .info {
+            background: #17a2b8;
+            color: white;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        pre {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧹 Clear Demo Session</h1>
+        
+        <div class="info">
+            <strong>Note:</strong> This will clear all demo/bypass auth data from your browser's localStorage and sessionStorage.
+        </div>
+
+        <button onclick="clearDemoSession()">Clear Demo Session</button>
+        <button onclick="clearAllStorage()">Clear All Storage</button>
+        <button onclick="showCurrentStorage()">Show Current Storage</button>
+        
+        <div id="success" class="success"></div>
+        <pre id="storage-display" style="display: none;"></pre>
+    </div>
+
+    <script>
+        function clearDemoSession() {
+            // Clear demo-related items
+            const demoKeys = [
+                'demo-user',
+                'demo-mode',
+                'demo-session',
+                'auth-storage',
+                'authToken',
+                'user',
+                'selectedUserRole'
+            ];
+
+            demoKeys.forEach(key => {
+                localStorage.removeItem(key);
+                sessionStorage.removeItem(key);
+            });
+
+            showSuccess('Demo session cleared! Please restart your frontend dev server and refresh the page.');
+        }
+
+        function clearAllStorage() {
+            localStorage.clear();
+            sessionStorage.clear();
+            showSuccess('All storage cleared! Please restart your frontend dev server and refresh the page.');
+        }
+
+        function showCurrentStorage() {
+            const display = document.getElementById('storage-display');
+            const data = {
+                localStorage: {},
+                sessionStorage: {}
+            };
+
+            // Get all localStorage items
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                try {
+                    data.localStorage[key] = JSON.parse(localStorage.getItem(key));
+                } catch (e) {
+                    data.localStorage[key] = localStorage.getItem(key);
+                }
+            }
+
+            // Get all sessionStorage items
+            for (let i = 0; i < sessionStorage.length; i++) {
+                const key = sessionStorage.key(i);
+                try {
+                    data.sessionStorage[key] = JSON.parse(sessionStorage.getItem(key));
+                } catch (e) {
+                    data.sessionStorage[key] = sessionStorage.getItem(key);
+                }
+            }
+
+            display.textContent = JSON.stringify(data, null, 2);
+            display.style.display = 'block';
+        }
+
+        function showSuccess(message) {
+            const successDiv = document.getElementById('success');
+            successDiv.textContent = message;
+            successDiv.style.display = 'block';
+            setTimeout(() => {
+                successDiv.style.display = 'none';
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
