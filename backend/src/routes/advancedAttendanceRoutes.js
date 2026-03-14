@@ -1,5 +1,5 @@
 import express from 'express';
-import * as advancedAttendanceController from '../controllers/advancedAttendanceController.js';
+import advancedAttendanceController from '../controllers/advancedAttendanceController.js';
 import { authenticate } from '../middleware/authMiddleware.js';
 import { authorize } from '../middleware/authGuard.js';
 

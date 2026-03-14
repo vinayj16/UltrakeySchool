@@ -253,3 +253,12 @@ export const getRegistrationStats = async (req, res) => {
     return errorResponse(res, 'Failed to fetch statistics');
   }
 };
+
+export default {
+  createInstitutionRegistration,
+  getPendingRegistrations,
+  getRegistrationById,
+  approveRegistration,
+  rejectRegistration,
+  getRegistrationStats
+};

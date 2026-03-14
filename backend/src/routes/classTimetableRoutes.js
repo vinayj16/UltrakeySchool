@@ -1,6 +1,6 @@
 import express from 'express';
 import { authenticate } from '../middleware/authMiddleware.js';
-import * as classTimetableController from '../controllers/classTimetableController.js';
+import classTimetableController from '../controllers/classTimetableController.js';
 
 const router = express.Router();
 router.use(authenticate);

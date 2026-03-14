@@ -39,32 +39,32 @@ export const errorHandler = (err, req, res, next) => {
   // Mongoose duplicate key error
   if (err.code === 11000) {
     const field = Object.keys(err.keyPattern)[0];
-    return errorResponse(res, `${field} already exists`, null, 409, 'DUPLICATE_KEY');
+    return errorResponse(res, `${field} already exists`, 409, 'DUPLICATE_KEY');
   }
 
   // Mongoose cast error
   if (err.name === 'CastError') {
-    return errorResponse(res, 'Invalid ID format', null, 400, 'INVALID_ID');
+    return errorResponse(res, 'Invalid ID format', 400, 'INVALID_ID');
   }
 
   // JWT errors
   if (err.name === 'JsonWebTokenError') {
-    return errorResponse(res, 'Invalid token', null, 401, 'INVALID_TOKEN');
+    return errorResponse(res, 'Invalid token', 401, 'INVALID_TOKEN');
   }
 
   if (err.name === 'TokenExpiredError') {
-    return errorResponse(res, 'Token expired', null, 401, 'TOKEN_EXPIRED');
+    return errorResponse(res, 'Token expired', 401, 'TOKEN_EXPIRED');
   }
 
   // Multer errors (file upload)
   if (err.name === 'MulterError') {
     if (err.code === 'LIMIT_FILE_SIZE') {
-      return errorResponse(res, 'File too large', null, 400, 'FILE_TOO_LARGE');
+      return errorResponse(res, 'File too large', 400, 'FILE_TOO_LARGE');
     }
     if (err.code === 'LIMIT_FILE_COUNT') {
-      return errorResponse(res, 'Too many files', null, 400, 'TOO_MANY_FILES');
+      return errorResponse(res, 'Too many files', 400, 'TOO_MANY_FILES');
     }
-    return errorResponse(res, err.message, null, 400, 'FILE_UPLOAD_ERROR');
+    return errorResponse(res, err.message, 400, 'FILE_UPLOAD_ERROR');
   }
 
   // Default error
@@ -77,10 +77,10 @@ export const errorHandler = (err, req, res, next) => {
       method: req.method,
       userId: req.user?.id
     });
-    return serverErrorResponse(res, message, err);
+    return serverErrorResponse(res, err);
   }
   
-  return errorResponse(res, message, null, statusCode, err.code);
+  return errorResponse(res, message, statusCode, err.code);
 };
 
 export const notFound = (req, res, next) => {

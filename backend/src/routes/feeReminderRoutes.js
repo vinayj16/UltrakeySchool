@@ -1,5 +1,5 @@
 import express from 'express';
-import * as feeReminderController from '../controllers/feeReminderController.js';
+import feeReminderController from '../controllers/feeReminderController.js';
 import { authenticate } from '../middleware/authMiddleware.js';
 import { authorize } from '../middleware/authGuard.js';
 

@@ -1,6 +1,6 @@
 import express from 'express';
 import { authenticate } from '../middleware/authMiddleware.js';
-import * as callLogController from '../controllers/callLogController.js';
+import callLogController from '../controllers/callLogController.js';
 
 const router = express.Router();
 router.use(authenticate);

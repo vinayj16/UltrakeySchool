@@ -3,14 +3,14 @@ import transportReportController from '../controllers/transportReportController.
 
 const router = express.Router();
 
-router.get('/', transportReportController.default.getAllReports);
-router.get('/statistics', transportReportController.default.getTransportStatistics);
-router.get('/search', transportReportController.default.searchReports);
-router.get('/type/:reportType', transportReportController.default.getReportsByType);
-router.get('/:id', transportReportController.default.getReportById);
-router.post('/', transportReportController.default.generateReport);
-router.put('/:id', transportReportController.default.updateReport);
-router.delete('/:id', transportReportController.default.deleteReport);
-router.post('/bulk-delete', transportReportController.default.bulkDeleteReports);
+router.get('/', transportReportController.getAllReports);
+router.get('/statistics', transportReportController.getTransportStatistics);
+router.get('/search', transportReportController.searchReports);
+router.get('/type/:reportType', transportReportController.getReportsByType);
+router.get('/:id', transportReportController.getReportById);
+router.post('/', transportReportController.generateReport);
+router.put('/:id', transportReportController.updateReport);
+router.delete('/:id', transportReportController.deleteReport);
+router.post('/bulk-delete', transportReportController.bulkDeleteReports);
 
 export default router;

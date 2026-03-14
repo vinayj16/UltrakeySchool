@@ -797,6 +797,48 @@ const getPaymentMethods = async (req, res) => {
 };
 
 // Export all functions
+
+// Stub implementations for missing methods
+const getGatewaySettings = async (req, res) => {
+  try {
+    return res.status(200).json({ success: true, message: 'getGatewaySettings - not yet implemented' });
+  } catch (error) {
+    return res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+const updateGatewaySettings = async (req, res) => {
+  try {
+    return res.status(200).json({ success: true, message: 'updateGatewaySettings - not yet implemented' });
+  } catch (error) {
+    return res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+const connectGateway = async (req, res) => {
+  try {
+    return res.status(200).json({ success: true, message: 'connectGateway - not yet implemented' });
+  } catch (error) {
+    return res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+const disconnectGateway = async (req, res) => {
+  try {
+    return res.status(200).json({ success: true, message: 'disconnectGateway - not yet implemented' });
+  } catch (error) {
+    return res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+const toggleGateway = async (req, res) => {
+  try {
+    return res.status(200).json({ success: true, message: 'toggleGateway - not yet implemented' });
+  } catch (error) {
+    return res.status(500).json({ success: false, message: error.message });
+  }
+};
+
 export default {
   createStripePayment,
   verifyStripePayment,
@@ -817,4 +859,10 @@ export default {
   retryFailedPayment,
   cancelPayment,
   getPaymentMethods
+,
+  getGatewaySettings,
+  updateGatewaySettings,
+  connectGateway,
+  disconnectGateway,
+  toggleGateway
 };

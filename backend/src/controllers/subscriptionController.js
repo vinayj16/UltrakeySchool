@@ -779,3 +779,28 @@ export const bulkSendRenewalReminders = async (req, res) => {
     return errorResponse(res, error.message);
   }
 };
+
+export default {
+  getSchoolSubscription,
+  getAllPlans,
+  getPlanById,
+  createSubscription,
+  upgradeSubscription,
+  cancelSubscription,
+  renewSubscription,
+  getExpiringSubscriptions,
+  getSubscriptionStats,
+  checkSubscriptionLimits,
+  subscribeComingSoon,
+  getSubscriptionsByStatus,
+  getAllSubscriptions,
+  suspendSubscription,
+  reactivateSubscription,
+  getSubscriptionHistory,
+  getSubscriptionUsage,
+  exportSubscriptions,
+  getRevenueStatistics,
+  getPlanStatistics,
+  sendRenewalReminder,
+  bulkSendRenewalReminders
+};

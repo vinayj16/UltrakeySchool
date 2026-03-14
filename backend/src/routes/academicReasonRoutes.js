@@ -1,7 +1,7 @@
 import express from 'express';
 import { authenticate, authorize } from '../middleware/authMiddleware.js';
 import { validate } from '../middleware/errorHandler.js';
-import * as academicReasonController from '../controllers/academicReasonController.js';
+import academicReasonController from '../controllers/academicReasonController.js';
 import * as validators from '../validators/academicReasonValidators.js';
 
 const router = express.Router();

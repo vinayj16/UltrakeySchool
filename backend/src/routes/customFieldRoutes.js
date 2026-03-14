@@ -1,6 +1,6 @@
 import express from 'express';
 import { authenticate } from '../middleware/authMiddleware.js';
-import * as customFieldController from '../controllers/customFieldController.js';
+import customFieldController from '../controllers/customFieldController.js';
 
 const router = express.Router();
 router.use(authenticate);

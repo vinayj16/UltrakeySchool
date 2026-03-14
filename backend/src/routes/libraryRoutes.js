@@ -1,5 +1,5 @@
 import express from 'express';
-import * as libraryController from '../controllers/libraryController.js';
+import libraryController from '../controllers/libraryController.js';
 import { authenticate } from '../middleware/authMiddleware.js';
 import { authorize } from '../middleware/authGuard.js';
 

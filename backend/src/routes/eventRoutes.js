@@ -1,6 +1,6 @@
 import express from 'express';
 import { authenticate } from '../middleware/authMiddleware.js';
-import * as eventController from '../controllers/eventController.js';
+import eventController from '../controllers/eventController.js';
 
 const router = express.Router();
 router.use(authenticate);

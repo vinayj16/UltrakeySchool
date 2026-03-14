@@ -1,5 +1,5 @@
 import express from 'express';
-import * as pendingInstitutionRegistrationController from '../controllers/pendingInstitutionRegistrationController.js';
+import pendingInstitutionRegistrationController from '../controllers/pendingInstitutionRegistrationController.js';
 import { authenticate, authorize } from '../middleware/authMiddleware.js';
 
 const router = express.Router();

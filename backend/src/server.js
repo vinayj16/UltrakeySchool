@@ -35,7 +35,7 @@ logger.info('Job queues disabled - Redis not configured');
 // Middleware
 app.use(helmet());
 app.use(cors({
-    origin: '*',
+    origin: process.env.CORS_ORIGIN || 'http://localhost:5173',
     credentials: true
 }));
 
@@ -89,9 +89,21 @@ const safeImportDefault = async (modulePath) => {
   }
 };
 
-app.use(`/api/${API_VERSION}/`, healthRoutes);
-app.use(`/api/${API_VERSION}/auth`, authRoutes);
-app.use(`/api/${API_VERSION}/admin`, adminRoutes);
+{
+  const healthRoutes = await safeImportDefault('./routes/healthRoutes.js');
+  if (healthRoutes) {
+    app.use('/', healthRoutes);
+    app.use(`/api/${API_VERSION}/`, healthRoutes);
+  }
+}
+{
+  const authRoutes = await safeImportDefault('./routes/authRoutes.js');
+  if (authRoutes) app.use(`/api/${API_VERSION}/auth`, authRoutes);
+}
+{
+  const adminRoutes = await safeImportDefault('./routes/adminRoutes.js');
+  if (adminRoutes) app.use(`/api/${API_VERSION}/admin`, adminRoutes);
+}
 // Core multi-tenant / management routes (loaded safely)
 {
   const userManagement = await safeImportDefault('./routes/userManagementRoutes.js');

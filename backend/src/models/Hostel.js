@@ -284,7 +284,7 @@ complaintSchema.index({ reportedBy: 1, status: 1 });
 complaintSchema.index({ category: 1, status: 1 });
 complaintSchema.index({ priority: 1, status: 1 });
 
-const Complaint = mongoose.model('Complaint', complaintSchema);
+const Complaint = mongoose.models.Complaint || mongoose.model('Complaint', complaintSchema);
 
 // Hostel Maintenance Schema
 const hostelMaintenanceSchema = new mongoose.Schema({

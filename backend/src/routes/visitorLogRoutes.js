@@ -1,5 +1,5 @@
 import express from 'express';
-import * as visitorLogController from '../controllers/visitorLogController.js';
+import visitorLogController from '../controllers/visitorLogController.js';
 import { authenticate } from '../middleware/authMiddleware.js';
 import { authorize } from '../middleware/authGuard.js';
 import { validate } from '../middleware/errorHandler.js';

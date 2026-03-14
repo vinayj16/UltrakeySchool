@@ -672,6 +672,72 @@ const getPermissionStatistics = async (req, res) => {
 };
 
 // Export all functions
+
+// Stub implementations for missing methods
+const checkUserModule = async (req, res) => {
+  try {
+    return res.status(200).json({ success: true, message: 'checkUserModule - not yet implemented' });
+  } catch (error) {
+    return res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+const checkUserRole = async (req, res) => {
+  try {
+    return res.status(200).json({ success: true, message: 'checkUserRole - not yet implemented' });
+  } catch (error) {
+    return res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+const getUserPermissions = async (req, res) => {
+  try {
+    return res.status(200).json({ success: true, message: 'getUserPermissions - not yet implemented' });
+  } catch (error) {
+    return res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+const getUserModules = async (req, res) => {
+  try {
+    return res.status(200).json({ success: true, message: 'getUserModules - not yet implemented' });
+  } catch (error) {
+    return res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+const assignPermissionsToUser = async (req, res) => {
+  try {
+    return res.status(200).json({ success: true, message: 'assignPermissionsToUser - not yet implemented' });
+  } catch (error) {
+    return res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+const assignModulesToUser = async (req, res) => {
+  try {
+    return res.status(200).json({ success: true, message: 'assignModulesToUser - not yet implemented' });
+  } catch (error) {
+    return res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+const updateUserRole = async (req, res) => {
+  try {
+    return res.status(200).json({ success: true, message: 'updateUserRole - not yet implemented' });
+  } catch (error) {
+    return res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+const updateUserPlan = async (req, res) => {
+  try {
+    return res.status(200).json({ success: true, message: 'updateUserPlan - not yet implemented' });
+  } catch (error) {
+    return res.status(500).json({ success: false, message: error.message });
+  }
+};
+
 export default {
   getAllPermissions,
   getPermissionById,
@@ -687,4 +753,13 @@ export default {
   bulkDeletePermissions,
   exportPermissions,
   getPermissionStatistics
+,
+  checkUserModule,
+  checkUserRole,
+  getUserPermissions,
+  getUserModules,
+  assignPermissionsToUser,
+  assignModulesToUser,
+  updateUserRole,
+  updateUserPlan
 };

@@ -1,5 +1,5 @@
 import express from 'express';
-import * as gdprSettingsController from '../controllers/gdprSettingsController.js';
+import gdprSettingsController from '../controllers/gdprSettingsController.js';
 import { authenticate } from '../middleware/authMiddleware.js';
 
 const router = express.Router();

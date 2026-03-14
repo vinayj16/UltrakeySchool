@@ -6,22 +6,22 @@ const router = express.Router();
 
 router.use(authenticate);
 
-router.get('/', permissionController.default.getAllPermissions);
-router.get('/:id', permissionController.default.getPermissionById);
-router.post('/', authorize('superadmin', 'admin'), permissionController.default.createPermission);
-router.put('/:id', authorize('superadmin', 'admin'), permissionController.default.updatePermission);
-router.delete('/:id', authorize('superadmin', 'admin'), permissionController.default.deletePermission);
+router.get('/', permissionController.getAllPermissions);
+router.get('/:id', permissionController.getPermissionById);
+router.post('/', authorize('superadmin', 'admin'), permissionController.createPermission);
+router.put('/:id', authorize('superadmin', 'admin'), permissionController.updatePermission);
+router.delete('/:id', authorize('superadmin', 'admin'), permissionController.deletePermission);
 
-router.get('/check/:userId/permission/:permissionKey', permissionController.default.checkUserPermission);
-router.get('/check/:userId/module/:moduleName', permissionController.default.checkUserModule);
-router.get('/check/:userId/role/:requiredRole', permissionController.default.checkUserRole);
+router.get('/check/:userId/permission/:permissionKey', permissionController.checkUserPermission);
+router.get('/check/:userId/module/:moduleName', permissionController.checkUserModule);
+router.get('/check/:userId/role/:requiredRole', permissionController.checkUserRole);
 
-router.get('/user/:userId/permissions', permissionController.default.getUserPermissions);
-router.get('/user/:userId/modules', permissionController.default.getUserModules);
+router.get('/user/:userId/permissions', permissionController.getUserPermissions);
+router.get('/user/:userId/modules', permissionController.getUserModules);
 
-router.post('/user/:userId/permissions', authorize('superadmin', 'admin'), permissionController.default.assignPermissionsToUser);
-router.post('/user/:userId/modules', authorize('superadmin', 'admin'), permissionController.default.assignModulesToUser);
-router.put('/user/:userId/role', authorize('superadmin', 'admin'), permissionController.default.updateUserRole);
-router.put('/user/:userId/plan', authorize('superadmin', 'admin'), permissionController.default.updateUserPlan);
+router.post('/user/:userId/permissions', authorize('superadmin', 'admin'), permissionController.assignPermissionsToUser);
+router.post('/user/:userId/modules', authorize('superadmin', 'admin'), permissionController.assignModulesToUser);
+router.put('/user/:userId/role', authorize('superadmin', 'admin'), permissionController.updateUserRole);
+router.put('/user/:userId/plan', authorize('superadmin', 'admin'), permissionController.updateUserPlan);
 
 export default router;

@@ -3,13 +3,13 @@ import transportAssignmentController from '../controllers/transportAssignmentCon
 
 const router = express.Router();
 
-router.get('/', transportAssignmentController.default.getAllAssignments);
-router.get('/:id', transportAssignmentController.default.getAssignmentById);
-router.post('/', transportAssignmentController.default.createAssignment);
-router.put('/:id', transportAssignmentController.default.updateAssignment);
-router.delete('/:id', transportAssignmentController.default.deleteAssignment);
-router.post('/bulk-delete', transportAssignmentController.default.bulkDeleteAssignments);
-router.get('/route/:routeId', transportAssignmentController.default.getAssignmentsByRoute);
-router.get('/vehicle/:vehicleId', transportAssignmentController.default.getAssignmentsByVehicle);
+router.get('/', transportAssignmentController.getAllAssignments);
+router.get('/:id', transportAssignmentController.getAssignmentById);
+router.post('/', transportAssignmentController.createAssignment);
+router.put('/:id', transportAssignmentController.updateAssignment);
+router.delete('/:id', transportAssignmentController.deleteAssignment);
+router.post('/bulk-delete', transportAssignmentController.bulkDeleteAssignments);
+router.get('/route/:routeId', transportAssignmentController.getAssignmentsByRoute);
+router.get('/vehicle/:vehicleId', transportAssignmentController.getAssignmentsByVehicle);
 
 export default router;

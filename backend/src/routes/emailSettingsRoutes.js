@@ -1,5 +1,5 @@
 import express from 'express';
-import * as emailSettingsController from '../controllers/emailSettingsController.js';
+import emailSettingsController from '../controllers/emailSettingsController.js';
 import { authenticate } from '../middleware/authMiddleware.js';
 
 const router = express.Router();

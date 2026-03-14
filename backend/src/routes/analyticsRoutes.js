@@ -1,6 +1,6 @@
 import express from 'express';
-import * as analyticsController from '../controllers/analyticsController.js';
-import * as adminAnalyticsController from '../controllers/adminAnalyticsController.js';
+import analyticsController from '../controllers/analyticsController.js';
+import adminAnalyticsController from '../controllers/adminAnalyticsController.js';
 
 const router = express.Router();
 
