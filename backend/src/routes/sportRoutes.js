@@ -4,10 +4,10 @@ import sportController from '../controllers/sportController.js';
 const router = express.Router();
 
 // Sport Routes
-router.post('/', sportController.default.createSport);
-router.get('/', sportController.default.getAllSports);
-router.get('/:id', sportController.default.getSportById);
-router.put('/:id', sportController.default.updateSport);
-router.delete('/:id', sportController.default.deleteSport);
+router.post('/', sportController.createSport);
+router.get('/', sportController.getAllSports);
+router.get('/:id', sportController.getSportById);
+router.put('/:id', sportController.updateSport);
+router.delete('/:id', sportController.deleteSport);
 
 export default router;

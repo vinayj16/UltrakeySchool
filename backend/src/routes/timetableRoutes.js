@@ -1,5 +1,5 @@
 import express from 'express';
-import * as timetableController from '../controllers/timetableController.js';
+import timetableController from '../controllers/timetableController.js';
 import { authenticate } from '../middleware/authMiddleware.js';
 import { authorize } from '../middleware/authGuard.js';
 import { validate } from '../middleware/errorHandler.js';

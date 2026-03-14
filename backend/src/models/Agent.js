@@ -150,5 +150,4 @@ agentSchema.statics.getStatistics = function(tenantId) {
 
 const Agent = mongoose.model('Agent', agentSchema);
 
-module.exports = Agent;
 export default Agent;

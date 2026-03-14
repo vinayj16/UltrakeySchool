@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "node src/server.js",
-    "dev": "powershell -Command \"try { $p = netstat -ano | findstr :5000 | findstr LISTENING | ForEach-Object { $_.Split()[-1] }; if ($p) { taskkill /PID $p /F 2>$null } } catch {} ; nodemon src/server.js\"",
+    "dev": "nodemon src/server.js",
     "dev:force": "node kill-port.js 5000 && node src/server.js",
     "kill-port": "node kill-port.js",
     "test": "jest --coverage",

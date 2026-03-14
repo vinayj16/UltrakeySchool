@@ -1,5 +1,5 @@
 import express from 'express';
-import * as fileManagerController from '../controllers/fileManagerController.js';
+import fileManagerController from '../controllers/fileManagerController.js';
 import * as validators from '../validators/fileManagerValidators.js';
 import { authenticate } from '../middleware/authMiddleware.js';
 

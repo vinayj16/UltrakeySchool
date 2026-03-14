@@ -12,50 +12,50 @@ router.use(authenticate);
 router.post(
   '/',
   authorize(['super_admin', 'school_admin']),
-  scholarshipController.default.createScholarship
+  scholarshipController.createScholarship
 );
 
-router.get('/', scholarshipController.default.getScholarships);
+router.get('/', scholarshipController.getScholarships);
 
-router.get('/:id', scholarshipController.default.getScholarshipById);
+router.get('/:id', scholarshipController.getScholarshipById);
 
 router.put(
   '/:id',
   authorize(['super_admin', 'school_admin']),
-  scholarshipController.default.updateScholarship
+  scholarshipController.updateScholarship
 );
 
 router.delete(
   '/:id',
   authorize(['super_admin', 'school_admin']),
-  scholarshipController.default.deleteScholarship
+  scholarshipController.deleteScholarship
 );
 
 // Scholarship Applications
-router.post('/apply', scholarshipController.default.applyForScholarship);
+router.post('/apply', scholarshipController.applyForScholarship);
 
-router.get('/applications/list', scholarshipController.default.getApplications);
+router.get('/applications/list', scholarshipController.getApplications);
 
 router.put(
   '/applications/:id/review',
   authorize(['super_admin', 'school_admin']),
-  scholarshipController.default.reviewApplication
+  scholarshipController.reviewApplication
 );
 
 router.post(
   '/applications/:id/disburse',
   authorize(['super_admin', 'school_admin', 'accountant']),
-  scholarshipController.default.disburseScholarship
+  scholarshipController.disburseScholarship
 );
 
 // Statistics
 router.get(
   '/stats/summary',
   authorize(['super_admin', 'school_admin']),
-  scholarshipController.default.getScholarshipStatistics
+  scholarshipController.getScholarshipStatistics
 );
 
 // Check Eligibility
-router.post('/:scholarshipId/check-eligibility', scholarshipController.default.checkEligibility);
+router.post('/:scholarshipId/check-eligibility', scholarshipController.checkEligibility);
 
 export default router;

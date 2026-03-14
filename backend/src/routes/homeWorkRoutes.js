@@ -1,7 +1,7 @@
 import express from 'express';
 import { authenticate, authorize } from '../middleware/authMiddleware.js';
 import { validate } from '../middleware/errorHandler.js';
-import * as homeWorkController from '../controllers/homeWorkController.js';
+import homeWorkController from '../controllers/homeWorkController.js';
 import * as validators from '../validators/homeWorkValidators.js';
 
 const router = express.Router();

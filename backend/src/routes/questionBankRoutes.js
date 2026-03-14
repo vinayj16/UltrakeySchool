@@ -6,18 +6,18 @@ const router = express.Router();
 
 router.use(protect);
 
-router.post('/', questionBankController.default.createQuestion);
-router.post('/bulk', questionBankController.default.bulkCreateQuestions);
-router.get('/', questionBankController.default.getQuestions);
-router.get('/random', questionBankController.default.getRandomQuestions);
-router.post('/exam', questionBankController.default.getQuestionsForExam);
-router.get('/statistics', questionBankController.default.getStatistics);
-router.get('/subjects', questionBankController.default.getSubjects);
-router.get('/subjects/:subject/topics', questionBankController.default.getTopicsBySubject);
-router.get('/:questionId', questionBankController.default.getQuestionById);
-router.put('/:questionId', questionBankController.default.updateQuestion);
-router.delete('/:questionId', questionBankController.default.deleteQuestion);
-router.post('/:questionId/duplicate', questionBankController.default.duplicateQuestion);
-router.put('/:questionId/archive', questionBankController.default.archiveQuestion);
+router.post('/', questionBankController.createQuestion);
+router.post('/bulk', questionBankController.bulkCreateQuestions);
+router.get('/', questionBankController.getQuestions);
+router.get('/random', questionBankController.getRandomQuestions);
+router.post('/exam', questionBankController.getQuestionsForExam);
+router.get('/statistics', questionBankController.getStatistics);
+router.get('/subjects', questionBankController.getSubjects);
+router.get('/subjects/:subject/topics', questionBankController.getTopicsBySubject);
+router.get('/:questionId', questionBankController.getQuestionById);
+router.put('/:questionId', questionBankController.updateQuestion);
+router.delete('/:questionId', questionBankController.deleteQuestion);
+router.post('/:questionId/duplicate', questionBankController.duplicateQuestion);
+router.put('/:questionId/archive', questionBankController.archiveQuestion);
 
 export default router;

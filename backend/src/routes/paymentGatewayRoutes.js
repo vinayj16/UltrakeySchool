@@ -12,54 +12,54 @@ router.use(authenticate);
 // Payment Gateway Settings Routes
 router.get('/settings', 
   authorize(['super_admin', 'school_admin', 'institution_admin', 'accountant']),
-  paymentGatewaySettingsController.getGatewaySettings
+  paymentGatewaySettingsController.getAllSettings
 );
 
 router.put('/settings',
   authorize(['super_admin', 'school_admin', 'institution_admin']),
-  paymentGatewaySettingsController.updateGatewaySettings
+  paymentGatewaySettingsController.updateSetting
 );
 
 router.patch('/settings/:gatewayName/toggle',
   authorize(['super_admin', 'school_admin', 'institution_admin']),
-  paymentGatewaySettingsController.toggleGateway
+  paymentGatewaySettingsController.enableGateway
 );
 
 router.post('/settings/:gatewayName/connect',
   authorize(['super_admin', 'school_admin', 'institution_admin']),
-  paymentGatewaySettingsController.connectGateway
+  paymentGatewaySettingsController.testConnection
 );
 
 router.post('/settings/:gatewayName/disconnect',
   authorize(['super_admin', 'school_admin', 'institution_admin']),
-  paymentGatewaySettingsController.disconnectGateway
+  paymentGatewaySettingsController.disableGateway
 );
 
 // Stripe Routes
-router.post('/stripe/payment', paymentGatewayController.default.createStripePayment);
-router.get('/stripe/payment/:paymentIntentId/verify', paymentGatewayController.default.verifyStripePayment);
+router.post('/stripe/payment', paymentGatewayController.createStripePayment);
+router.get('/stripe/payment/:paymentIntentId/verify', paymentGatewayController.verifyStripePayment);
 router.post(
   '/stripe/customer',
   authorize(['super_admin', 'school_admin', 'accountant']),
-  paymentGatewayController.default.createStripeCustomer
+  paymentGatewayController.createStripeCustomer
 );
 
 // Razorpay Routes
-router.post('/razorpay/order', paymentGatewayController.default.createRazorpayOrder);
-router.post('/razorpay/verify', paymentGatewayController.default.verifyRazorpayPayment);
+router.post('/razorpay/order', paymentGatewayController.createRazorpayOrder);
+router.post('/razorpay/verify', paymentGatewayController.verifyRazorpayPayment);
 
 // PayU Routes
-router.post('/payu/payment', paymentGatewayController.default.createPayUPayment);
-router.post('/payu/verify', paymentGatewayController.default.verifyPayUPayment);
+router.post('/payu/payment', paymentGatewayController.createPayUPayment);
+router.post('/payu/verify', paymentGatewayController.verifyPayUPayment);
 
 // Refund Routes
 router.post(
   '/refund/:gateway',
   authorize(['super_admin', 'school_admin', 'accountant']),
-  paymentGatewayController.default.processRefund
+  paymentGatewayController.processRefund
 );
 
 // Payment Status
-router.get('/status/:gateway/:paymentId', paymentGatewayController.default.getPaymentStatus);
+router.get('/status/:gateway/:paymentId', paymentGatewayController.getPaymentStatus);
 
 export default router;

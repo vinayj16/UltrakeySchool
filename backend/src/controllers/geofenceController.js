@@ -277,7 +277,7 @@ const validateLocation = async (req, res) => {
 };
 
 // Get Geofences
-exports.getGeofences = async (req, res) => {
+const getGeofences = async (req, res) => {
   try {
     const { page = 1, limit = 20, type, locationType, isActive } = req.query;
     const institutionId = req.user.institution;
@@ -326,7 +326,7 @@ exports.getGeofences = async (req, res) => {
 };
 
 // Get Geofence by ID
-exports.getGeofenceById = async (req, res) => {
+const getGeofenceById = async (req, res) => {
   try {
     const { id } = req.params;
     const institutionId = req.user.institution;
@@ -367,7 +367,7 @@ exports.getGeofenceById = async (req, res) => {
 };
 
 // Update Geofence
-exports.updateGeofence = async (req, res) => {
+const updateGeofence = async (req, res) => {
   try {
     const { id } = req.params;
     const {
@@ -445,7 +445,7 @@ exports.updateGeofence = async (req, res) => {
 };
 
 // Delete Geofence
-exports.deleteGeofence = async (req, res) => {
+const deleteGeofence = async (req, res) => {
   try {
     const { id } = req.params;
     const institutionId = req.user.institution;
@@ -493,7 +493,7 @@ exports.deleteGeofence = async (req, res) => {
 };
 
 // Get Campus Geofences
-exports.getCampusGeofences = async (req, res) => {
+const getCampusGeofences = async (req, res) => {
   try {
     const institutionId = req.user.institution;
 
@@ -514,7 +514,7 @@ exports.getCampusGeofences = async (req, res) => {
 };
 
 // Get Transport Geofences
-exports.getTransportGeofences = async (req, res) => {
+const getTransportGeofences = async (req, res) => {
   try {
     const institutionId = req.user.institution;
 
@@ -535,7 +535,7 @@ exports.getTransportGeofences = async (req, res) => {
 };
 
 // Get Geofence Statistics
-exports.getGeofenceStatistics = async (req, res) => {
+const getGeofenceStatistics = async (req, res) => {
   try {
     const institutionId = req.user.institution;
 
@@ -614,7 +614,7 @@ exports.getGeofenceStatistics = async (req, res) => {
 };
 
 // Bulk Create Geofences
-exports.bulkCreateGeofences = async (req, res) => {
+const bulkCreateGeofences = async (req, res) => {
   try {
     const { geofences } = req.body;
     const institutionId = req.user.institution;
@@ -684,5 +684,13 @@ exports.bulkCreateGeofences = async (req, res) => {
 
 export default {
   createGeofence,
-  validateLocation
+  validateLocation,
+  getGeofences,
+  getGeofenceById,
+  updateGeofence,
+  deleteGeofence,
+  getCampusGeofences,
+  getTransportGeofences,
+  getGeofenceStatistics,
+  bulkCreateGeofences
 };

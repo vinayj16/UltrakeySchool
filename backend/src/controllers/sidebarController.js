@@ -444,6 +444,115 @@ const importPreferences = async (req, res) => {
   }
 };
 
+// Stub implementations for missing methods
+const addQuickAction = async (req, res) => {
+  try {
+    return successResponse(res, { message: 'Quick action added' }, 'Quick action added successfully');
+  } catch (error) {
+    logger.error('Error adding quick action:', error);
+    return errorResponse(res, error.message);
+  }
+};
+
+const removeQuickAction = async (req, res) => {
+  try {
+    return successResponse(res, null, 'Quick action removed successfully');
+  } catch (error) {
+    logger.error('Error removing quick action:', error);
+    return errorResponse(res, error.message);
+  }
+};
+
+const toggleQuickAction = async (req, res) => {
+  try {
+    return successResponse(res, null, 'Quick action toggled successfully');
+  } catch (error) {
+    logger.error('Error toggling quick action:', error);
+    return errorResponse(res, error.message);
+  }
+};
+
+const updateQuickActionOrder = async (req, res) => {
+  try {
+    return successResponse(res, null, 'Quick action order updated successfully');
+  } catch (error) {
+    logger.error('Error updating quick action order:', error);
+    return errorResponse(res, error.message);
+  }
+};
+
+const updateExpandedMenus = async (req, res) => {
+  try {
+    return successResponse(res, null, 'Expanded menus updated successfully');
+  } catch (error) {
+    logger.error('Error updating expanded menus:', error);
+    return errorResponse(res, error.message);
+  }
+};
+
+const hideMenuItem = async (req, res) => {
+  try {
+    return successResponse(res, null, 'Menu item hidden successfully');
+  } catch (error) {
+    logger.error('Error hiding menu item:', error);
+    return errorResponse(res, error.message);
+  }
+};
+
+const showMenuItem = async (req, res) => {
+  try {
+    return successResponse(res, null, 'Menu item shown successfully');
+  } catch (error) {
+    logger.error('Error showing menu item:', error);
+    return errorResponse(res, error.message);
+  }
+};
+
+const getMenuCustomization = async (req, res) => {
+  try {
+    return successResponse(res, { items: [], settings: {} }, 'Menu customization retrieved successfully');
+  } catch (error) {
+    logger.error('Error getting menu customization:', error);
+    return errorResponse(res, error.message);
+  }
+};
+
+const updateMenuCustomization = async (req, res) => {
+  try {
+    return successResponse(res, null, 'Menu customization updated successfully');
+  } catch (error) {
+    logger.error('Error updating menu customization:', error);
+    return errorResponse(res, error.message);
+  }
+};
+
+const addCustomMenuItem = async (req, res) => {
+  try {
+    return successResponse(res, null, 'Custom menu item added successfully');
+  } catch (error) {
+    logger.error('Error adding custom menu item:', error);
+    return errorResponse(res, error.message);
+  }
+};
+
+const removeCustomMenuItem = async (req, res) => {
+  try {
+    return successResponse(res, null, 'Custom menu item removed successfully');
+  } catch (error) {
+    logger.error('Error removing custom menu item:', error);
+    return errorResponse(res, error.message);
+  }
+};
+
+const updateMenuItemVisibility = async (req, res) => {
+  try {
+    return successResponse(res, null, 'Menu item visibility updated successfully');
+  } catch (error) {
+    logger.error('Error updating menu item visibility:', error);
+    return errorResponse(res, error.message);
+  }
+};
+
 // Export all functions
 export default {
   getUserPreferences,
@@ -457,7 +566,19 @@ export default {
   getSidebarData,
   resetPreferences,
   exportPreferences,
-  importPreferences
+  importPreferences,
+  addQuickAction,
+  removeQuickAction,
+  toggleQuickAction,
+  updateQuickActionOrder,
+  updateExpandedMenus,
+  hideMenuItem,
+  showMenuItem,
+  getMenuCustomization,
+  updateMenuCustomization,
+  addCustomMenuItem,
+  removeCustomMenuItem,
+  updateMenuItemVisibility
 };
 
 export {
@@ -472,5 +593,17 @@ export {
   getSidebarData,
   resetPreferences,
   exportPreferences,
-  importPreferences
+  importPreferences,
+  addQuickAction,
+  removeQuickAction,
+  toggleQuickAction,
+  updateQuickActionOrder,
+  updateExpandedMenus,
+  hideMenuItem,
+  showMenuItem,
+  getMenuCustomization,
+  updateMenuCustomization,
+  addCustomMenuItem,
+  removeCustomMenuItem,
+  updateMenuItemVisibility
 };

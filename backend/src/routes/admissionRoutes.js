@@ -1,5 +1,5 @@
 import express from 'express';
-import * as admissionController from '../controllers/admissionController.js';
+import admissionController from '../controllers/admissionController.js';
 import { protect } from '../middleware/authMiddleware.js';
 
 const router = express.Router();

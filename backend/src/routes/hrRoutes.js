@@ -13,82 +13,82 @@ router.use(validateTenantAccess);
 // Employee Routes - HR Manager and above
 router.post('/employees',
   authorize('hr_manager', 'school_admin', 'institution_admin', 'superadmin'),
-  hrController.default.createEmployee
+  hrController.createEmployee
 );
 
 router.get('/employees',
   authorize('hr_manager', 'school_admin', 'institution_admin', 'superadmin', 'accountant', 'librarian', 'transport_manager', 'hostel_warden'),
-  hrController.default.getAllEmployees
+  hrController.getAllEmployees
 );
 
 router.get('/employees/:id',
   authorize('hr_manager', 'school_admin', 'institution_admin', 'superadmin', 'accountant', 'librarian', 'transport_manager', 'hostel_warden'),
-  hrController.default.getEmployeeById
+  hrController.getEmployeeById
 );
 
 router.put('/employees/:id',
   authorize('hr_manager', 'school_admin', 'institution_admin', 'superadmin'),
-  hrController.default.updateEmployee
+  hrController.updateEmployee
 );
 
 router.put('/employees/:id/performance',
   authorize('hr_manager', 'school_admin', 'institution_admin', 'superadmin'),
-  hrController.default.updateEmployeePerformance
+  hrController.updateEmployeePerformance
 );
 
 // Leave Routes - All authenticated users
 router.post('/leave',
-  hrController.default.applyLeave
+  hrController.applyLeave
 );
 
 router.get('/leave',
-  hrController.default.getAllLeaves
+  hrController.getAllLeaves
 );
 
 router.put('/leave/:id/status',
   authorize('hr_manager', 'school_admin', 'institution_admin', 'superadmin'),
-  hrController.default.updateLeaveStatus
+  hrController.updateLeaveStatus
 );
 
 // Recruitment Routes - HR Manager and above
 router.post('/recruitment',
   authorize('hr_manager', 'school_admin', 'institution_admin', 'superadmin'),
-  hrController.default.createRecruitment
+  hrController.createRecruitment
 );
 
 router.get('/recruitment',
   authorize('hr_manager', 'school_admin', 'institution_admin', 'superadmin', 'teacher', 'staff_member'),
-  hrController.default.getAllRecruitments
+  hrController.getAllRecruitments
 );
 
 router.post('/recruitment/:id/apply',
-  hrController.default.applyForJob
+  hrController.applyForJob
 );
 
 // Performance Review Routes - HR Manager and above
 router.post('/performance',
   authorize('hr_manager', 'school_admin', 'institution_admin', 'superadmin'),
-  hrController.default.createPerformanceReview
+  hrController.createPerformanceReview
 );
 
 router.get('/performance',
   authorize('hr_manager', 'school_admin', 'institution_admin', 'superadmin'),
-  hrController.default.getAllPerformanceReviews
+  hrController.getAllPerformanceReviews
 );
 
 // Training Routes - HR Manager and above
 router.post('/training',
   authorize('hr_manager', 'school_admin', 'institution_admin', 'superadmin'),
-  hrController.default.createTraining
+  hrController.createTraining
 );
 
 router.get('/training',
   authorize('hr_manager', 'school_admin', 'institution_admin', 'superadmin', 'teacher', 'staff_member'),
-  hrController.default.getAllTrainings
+  hrController.getAllTrainings
 );
 
 router.post('/training/:id/enroll',
-  hrController.default.enrollInTraining
+  hrController.enrollInTraining
 );
 
 // Dashboard Routes - HR Manager specific

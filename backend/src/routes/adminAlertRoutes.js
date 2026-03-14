@@ -1,5 +1,5 @@
 import express from 'express';
-import * as adminAlertController from '../controllers/adminAlertController.js';
+import adminAlertController from '../controllers/adminAlertController.js';
 
 const router = express.Router();
 

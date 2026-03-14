@@ -1,6 +1,6 @@
 import express from 'express';
-import database from '../config/database.js';
-import redis from '../config/redis.js';
+import { checkDBHealth, getDBStats } from '../config/database.js';
+import { checkRedisHealth, getRedisStats } from '../config/redis.js';
 import { getCacheStats } from '../middleware/cacheMiddleware.js';
 import os from 'os';
 
@@ -12,8 +12,8 @@ const router = express.Router();
  */
 router.get('/health', async (req, res) => {
   try {
-    const dbHealth = await database.checkDBHealth();
-    const redisHealth = await redis.checkRedisHealth();
+    const dbHealth = await checkDBHealth();
+    const redisHealth = await checkRedisHealth();
 
     const isHealthy = dbHealth.healthy && redisHealth.healthy;
 
@@ -40,8 +40,8 @@ router.get('/health', async (req, res) => {
  */
 router.get('/ready', async (req, res) => {
   try {
-    const dbHealth = await database.checkDBHealth();
-    const redisHealth = await redis.checkRedisHealth();
+    const dbHealth = await checkDBHealth();
+    const redisHealth = await checkRedisHealth();
 
     if (dbHealth.healthy && redisHealth.healthy) {
       res.status(200).json({
@@ -82,8 +82,8 @@ router.get('/live', (req, res) => {
  */
 router.get('/metrics', async (req, res) => {
   try {
-    const dbStats = await database.getDBStats();
-    const redisStats = await redis.getRedisStats();
+    const dbStats = await getDBStats();
+    const redisStats = await getRedisStats();
     const cacheStats = getCacheStats();
 
     const metrics = {

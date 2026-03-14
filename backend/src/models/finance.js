@@ -219,7 +219,7 @@ transactionSchema.index({ student: 1, type: 1 });
 transactionSchema.index({ invoice: 1 });
 transactionSchema.index({ processedAt: -1 });
 
-const Transaction = mongoose.model('Transaction', transactionSchema);
+const Transaction = mongoose.models.Transaction || mongoose.model('Transaction', transactionSchema);
 
 // Budget Schema
 const budgetSchema = new mongoose.Schema({

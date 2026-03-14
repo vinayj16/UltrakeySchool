@@ -1,5 +1,5 @@
 import express from 'express';
-import * as driverController from '../controllers/driverController.js';
+import driverController from '../controllers/driverController.js';
 import { authenticate } from '../middleware/authMiddleware.js';
 
 const router = express.Router();

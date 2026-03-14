@@ -322,10 +322,67 @@ const deleteScholarship = async (req, res) => {
 };
 
 // Export all functions
+
+// Stub implementations for missing methods
+const getApplications = async (req, res) => {
+  try {
+    return res.status(200).json({ success: true, message: 'getApplications - not yet implemented' });
+  } catch (error) {
+    return res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+const applyForScholarship = async (req, res) => {
+  try {
+    return res.status(200).json({ success: true, message: 'applyForScholarship - not yet implemented' });
+  } catch (error) {
+    return res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+const reviewApplication = async (req, res) => {
+  try {
+    return res.status(200).json({ success: true, message: 'reviewApplication - not yet implemented' });
+  } catch (error) {
+    return res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+const checkEligibility = async (req, res) => {
+  try {
+    return res.status(200).json({ success: true, message: 'checkEligibility - not yet implemented' });
+  } catch (error) {
+    return res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+const disburseScholarship = async (req, res) => {
+  try {
+    return res.status(200).json({ success: true, message: 'disburseScholarship - not yet implemented' });
+  } catch (error) {
+    return res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+const getScholarshipStatistics = async (req, res) => {
+  try {
+    return res.status(200).json({ success: true, message: 'getScholarshipStatistics - not yet implemented' });
+  } catch (error) {
+    return res.status(500).json({ success: false, message: error.message });
+  }
+};
+
 export default {
   createScholarship,
   getScholarships,
   getScholarshipById,
   updateScholarship,
   deleteScholarship
+,
+  getApplications,
+  applyForScholarship,
+  reviewApplication,
+  checkEligibility,
+  disburseScholarship,
+  getScholarshipStatistics
 };

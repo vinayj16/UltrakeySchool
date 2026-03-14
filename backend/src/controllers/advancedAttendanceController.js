@@ -363,6 +363,72 @@ const getAdvancedAttendanceHistory = async (req, res) => {
 };
 
 
+
+// Stub implementations for missing methods
+const registerBiometric = async (req, res) => {
+  try {
+    return res.status(200).json({ success: true, message: 'registerBiometric - not yet implemented' });
+  } catch (error) {
+    return res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+const verifyBiometric = async (req, res) => {
+  try {
+    return res.status(200).json({ success: true, message: 'verifyBiometric - not yet implemented' });
+  } catch (error) {
+    return res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+const getBiometricDevices = async (req, res) => {
+  try {
+    return res.status(200).json({ success: true, message: 'getBiometricDevices - not yet implemented' });
+  } catch (error) {
+    return res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+const deactivateBiometric = async (req, res) => {
+  try {
+    return res.status(200).json({ success: true, message: 'deactivateBiometric - not yet implemented' });
+  } catch (error) {
+    return res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+const registerFace = async (req, res) => {
+  try {
+    return res.status(200).json({ success: true, message: 'registerFace - not yet implemented' });
+  } catch (error) {
+    return res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+const verifyFace = async (req, res) => {
+  try {
+    return res.status(200).json({ success: true, message: 'verifyFace - not yet implemented' });
+  } catch (error) {
+    return res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+const deactivateFaceRecognition = async (req, res) => {
+  try {
+    return res.status(200).json({ success: true, message: 'deactivateFaceRecognition - not yet implemented' });
+  } catch (error) {
+    return res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+const getFaceRecognitionStats = async (req, res) => {
+  try {
+    return res.status(200).json({ success: true, message: 'getFaceRecognitionStats - not yet implemented' });
+  } catch (error) {
+    return res.status(500).json({ success: false, message: error.message });
+  }
+};
+
 export default {
   generateAttendanceQR,
   scanAttendanceQR,
@@ -373,4 +439,12 @@ export default {
   getQRCodeStats,
   getUserAttendanceMethods,
   getAdvancedAttendanceHistory,
+  registerBiometric,
+  verifyBiometric,
+  getBiometricDevices,
+  deactivateBiometric,
+  registerFace,
+  verifyFace,
+  deactivateFaceRecognition,
+  getFaceRecognitionStats
 };

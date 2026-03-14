@@ -19,7 +19,7 @@ router.post('/',
     serialNumber: { required: true, type: 'string' },
     location: { required: false, type: 'string', enum: ['gate', 'library', 'transport', 'classroom', 'office'] }
   }),
-  rfidController.default.createRfidCard
+  rfidController.createRfidCard
 );
 
 // Validate RFID Card
@@ -29,7 +29,7 @@ router.post('/validate',
     location: { required: false, type: 'string' },
     metadata: { required: false, type: 'object' }
   }),
-  rfidController.default.validateRfidCard
+  rfidController.validateRfidCard
 );
 
 // Get RFID Cards
@@ -42,13 +42,13 @@ router.get('/',
     userType: { required: false, type: 'string', enum: ['student', 'teacher', 'staff', 'parent'] },
     location: { required: false, type: 'string', enum: ['gate', 'library', 'transport', 'classroom', 'office'] }
   }),
-  rfidController.default.getRfidCards
+  rfidController.getRfidCards
 );
 
 // Get RFID Card by ID
 router.get('/:id',
   authorize(['super_admin', 'school_admin', 'transport_manager', 'teacher']),
-  rfidController.default.getRfidCardById
+  rfidController.getRfidCardById
 );
 
 // Update RFID Card
@@ -59,13 +59,13 @@ router.put('/:id',
     location: { required: false, type: 'string', enum: ['gate', 'library', 'transport', 'classroom', 'office'] },
     metadata: { required: false, type: 'object' }
   }),
-  rfidController.default.updateRfidCard
+  rfidController.updateRfidCard
 );
 
 // Delete RFID Card (Soft Delete)
 router.delete('/:id',
   authorize(['super_admin', 'school_admin', 'transport_manager']),
-  rfidController.default.deleteRfidCard
+  rfidController.deleteRfidCard
 );
 
 // Block RFID Card
@@ -74,19 +74,19 @@ router.post('/:id/block',
   validateInput({
     reason: { required: false, type: 'string' }
   }),
-  rfidController.default.blockRfidCard
+  rfidController.blockRfidCard
 );
 
 // Activate RFID Card
 router.post('/:id/activate',
   authorize(['super_admin', 'school_admin', 'transport_manager']),
-  rfidController.default.activateRfidCard
+  rfidController.activateRfidCard
 );
 
 // Get RFID Statistics
 router.get('/statistics',
   authorize(['super_admin', 'school_admin', 'transport_manager']),
-  rfidController.default.getRfidStatistics
+  rfidController.getRfidStatistics
 );
 
 export default router;

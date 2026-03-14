@@ -1,5 +1,5 @@
 // Geofence Model
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const geofenceSchema = new mongoose.Schema({
   name: {
@@ -215,5 +215,5 @@ geofenceSchema.methods.canAccess = function(userType) {
   return this.allowedUserTypes.includes(userType);
 };
 
-module.exports = mongoose.model('Geofence', geofenceSchema);
-export default mongoose.model('Geofence', geofenceSchema);
+const Geofence = mongoose.models.Geofence || mongoose.model('Geofence', geofenceSchema);
+export default Geofence;
